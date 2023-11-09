@@ -1,0 +1,1652 @@
+Design and Analysis of Algorithms
+Learn theory - video
+Theory - chatgpt
+Code - video
+Code - chatgpt
+Code swata
+Final code save
+Theory What is the problem, how the solution works, which approach is used, what is the time and
+space complexity, can it be made more optimal, how the code works
+
+Recursion:
+Recursion is a programming and problem-solving technique where a function calls itself to
+solve a problem. It's like breaking down a big problem into smaller, similar sub-problems until
+you reach a base case where you can solve it directly. Here's a simple explanation of
+recursion with an example:
+1. Base Case: Every recursive function has a base case, which is the simplest scenario
+that can be solved directly. When the base case is met, the recursion stops.
+2. Recursive Case: In the recursive case, the function breaks down the problem into
+smaller, similar sub-problems and calls itself to solve those sub-problems.
+Advantages of Recursion:
+1. Simplicity and Readability: Recursive solutions often closely model the way we
+think about and solve problems. This can make the code more intuitive and easier to
+read and understand.
+2. Divide and Conquer: Recursion naturally fits problems that can be divided into
+smaller, similar sub-problems. It can simplify complex problems by breaking them
+down into manageable pieces..
+3. Modularity: Recursive functions can be thought of as self-contained modules that
+solve a specific sub-problem. This modularity can make the code easier to maintain
+and debug.
+4. Elegant and Compact Code: Recursion can lead to more concise and elegant code
+compared to iterative solutions for some problems.
+Disadvantages of Recursion:
+1. Stack Overflows: In many programming languages, each recursive call adds a new
+frame to the call stack. If the recursion goes too deep (recurs too many times), it can
+lead to a stack overflow error, causing the program to crash. This can be mitigated in
+some cases by using tail recursion or by increasing the stack size, but it's still a
+limitation.
+
+2. Performance Overhead: Recursive function calls can be less efficient than iterative
+solutions, as each function call involves additional overhead to manage the call
+stack. In some cases, this can lead to slower execution.
+3. Complexity and Debugging: Recursion can make debugging more challenging
+because of the recursive call stack. Identifying the source of an issue in a deeply
+recursive function can be more complex than in a straightforward iterative function.
+4. Memory Usage: Recursive solutions can be memory-intensive if they involve deep
+recursion. Each function call consumes memory for its stack frame, and this memory
+usage can add up quickly.
+5. Not Suitable for All Problems: Not all problems are naturally suited for a recursive
+solution. In some cases, iterative approaches may be more straightforward and
+efficient.
+6. Inefficient: Recursive algorithms can be less efficient than iterative ones because of
+the overhead of function calls and the potential for redundant calculations. Some
+problems that are easily solved iteratively might become slower when approached
+with recursion.
+7. Readability for Large Recursions: In some cases, especially when dealing with
+large recursion trees, the code might become less readable and harder to analyze.
+In summary, recursion is a valuable tool, particularly for solving problems that can be broken
+down into smaller, similar sub-problems. It offers clarity and elegance in code, but it can also
+pose challenges related to performance, stack overflow, and debugging. It's important to
+choose recursion when it's the most appropriate and efficient solution for a particular
+problem and to be mindful of its limitations.
+
+Iteration:
+Iteration is a programming and problem-solving technique where you solve a problem by
+repeatedly executing a set of instructions in a loop until a certain condition is met. It involves
+using loops, such as "for" and "while" loops, to perform a sequence of operations. Here's a
+simple explanation of iteration with an example:
+1. Initialization: You start by setting up an initial state or value.
+2. Condition: You specify a condition that determines whether to continue or terminate
+the loop.
+3. Iteration: You execute a set of instructions or code, and then update the state or
+values.
+4. Termination: When the condition becomes false, the loop stops.
+Advantages of Iteration:
+1. Efficiency: Iterative solutions are often more efficient in terms of both time and
+space complexity compared to recursive solutions.
+2. Predictable: Iterative code typically has a predictable flow, making it easier to debug
+and analyze.
+3. No Stack Overflows: Unlike recursion, iterations do not consume stack space, so
+you don't run the risk of stack overflow errors.
+
+4. Better for Large Inputs: Iteration can be more suitable for problems that involve
+large inputs, as it doesn't create a deep call stack.
+Disadvantages of Iteration:
+1. Complexity for Certain Problems: For problems with a recursive structure, an
+iterative solution may require more complex and less readable code.
+2. Repetition: In some cases, iterative solutions may involve writing repetitive code to
+handle loops and state updates.
+3. Difficulty with Certain Data Structures: Iteration can be less straightforward for
+some data structures, such as trees and graphs, which might be more naturally
+handled with recursion.
+In summary, iteration is a widely used programming technique for solving problems that
+involve repetitive tasks, offering efficiency and predictability. It's often a good choice for
+problems that don't naturally lend themselves to recursion. However, the choice between
+recursion and iteration depends on the specific problem and its requirements.
+
+Greedy Algorithms:
+The Greedy Algorithm is a simple yet powerful approach used in algorithm design and
+problem-solving. It involves making a series of choices that are locally optimal at each step
+with the hope that these choices will lead to a globally optimal solution. In other words, a
+greedy algorithm makes the best choice at each step without considering the overall impact,
+aiming to find an approximate solution to an optimization problem.
+The Greedy Algorithm is a problem-solving approach that makes a series of choices based
+on the most immediate benefit without considering the long-term consequences. It's a
+straightforward and intuitive method for solving optimization problems where you try to find
+the best solution from a set of possibilities. Here's a simple explanation of the Greedy
+Algorithm with an example:
+1. Selection: At each step, the Greedy Algorithm selects the best available option
+according to a specific criterion, without considering how that choice affects future
+decisions.
+2. Feasibility Check: After selecting an option, the algorithm checks if it's feasible or
+valid within the problem's constraints.
+3. Termination: The algorithm continues making selections and feasibility checks until
+a solution is found or it's determined that no valid solution exists.
+The Greedy Algorithm is generally used for problems where making the locally optimal
+choice at each step leads to a globally optimal solution. However, it's important to note that
+the Greedy Algorithm doesn't guarantee an optimal solution for all problems, and it may
+sometimes lead to suboptimal results.
+Here's a classic example of a problem solved using the Greedy Algorithm: the "Coin Change
+Problem."
+
+Coin Change Problem:
+Suppose you want to make change for a specific amount of money using the fewest possible
+coins. You have a set of coin denominations (e.g., 1 cent, 5 cents, 10 cents, and 25 cents).
+The goal is to find the minimum number of coins needed to make the change.
+Using the Greedy Algorithm for this problem, you would select the largest available coin
+denomination that doesn't exceed the remaining change and continue until you reach the
+desired amount.
+For example, if you need to make change for 63 cents with coin denominations of 25, 10, 5,
+and 1 cent, the Greedy Algorithm would work as follows:
+1.
+2.
+3.
+4.
+
+Select one 25-cent coin. Remaining change: 38 cents.
+Select one 25-cent coin. Remaining change: 13 cents.
+Select one 10-cent coin. Remaining change: 3 cents.
+Select three 1-cent coins. Remaining change: 0 cents.
+
+The Greedy Algorithm chose the largest coin denominations first and successfully made
+change for 63 cents using the fewest coins: two 25-cent coins, one 10-cent coin, and three
+1-cent coins.
+While the Greedy Algorithm worked for this example, it's important to note that it may not
+always provide an optimal solution. In some cases, more complex problems require dynamic
+programming or other algorithmic approaches to ensure the best possible outcome.
+Advantages of the Greedy Algorithm for the Fractional Knapsack Problem:
+1. Simplicity: The Greedy Algorithm is relatively simple to understand and implement,
+making it a good choice for quick problem-solving.
+2. Efficiency: It often provides efficient solutions by selecting the most valuable items
+first. This can lead to quick decisions and solutions, especially when dealing with a
+large number of items.
+3. Optimality for Fractional Knapsack: The Greedy Algorithm is optimal for the
+Fractional Knapsack Problem, where you can take fractions of items. It ensures that
+you achieve the highest possible value for the given capacity.
+Disadvantages of the Greedy Algorithm for the Fractional Knapsack Problem:
+1. Lack of Optimality for 0/1 Knapsack: The Greedy Algorithm doesn't guarantee an
+optimal solution for the 0/1 Knapsack Problem, where you must either take an item
+entirely or leave it. It may select a combination of items that doesn't lead to the best
+solution.
+2. Dependence on Sorting: The Greedy Algorithm relies on sorting items by their
+value-to-weight ratios. If the sorting process is time-consuming, it can affect the
+overall efficiency of the algorithm.
+3. Limited Applicability: The Greedy Algorithm is suitable for problems where a
+greedy approach works, such as the Fractional Knapsack Problem. It may not be
+applicable or optimal for all types of optimization problems.
+
+4. No Backtracking: The Greedy Algorithm doesn't backtrack or reconsider previous
+choices. Once an item is selected, it cannot be unselected. In some situations, this
+rigidity can lead to suboptimal solutions.
+In summary, the Greedy Algorithm is a simple and efficient approach for solving the
+Fractional Knapsack Problem and similar optimization problems. However, it may not always
+provide the best solution for more complex scenarios like the 0/1 Knapsack Problem or
+problems where a more nuanced approach is required. Careful consideration of the
+problem's characteristics is essential to determine whether the Greedy Algorithm is a
+suitable choice.
+
+Optimization - Maximization , Minimization:
+Optimization Problems:
+An optimization problem is a type of problem where you want to find the best possible
+solution from a set of possible solutions. This "best" solution is determined by some criteria
+or objectives you want to achieve, like maximizing profit, minimizing cost, or finding the
+shortest path. The goal is to make the most out of a situation or resources.
+Imagine you are planning a road trip, and you want to find the shortest route from your home
+to a destination. The optimization problem, in this case, is to find the route that minimizes the
+distance you need to travel while following the roads.
+Maximization Problems:
+Maximization problems are a specific type of optimization problem where the objective is to
+find the solution that maximizes a certain value or benefit. You are trying to make something
+as big or as great as possible.
+For example, consider a business that wants to maximize its profits. The business needs to
+decide how much of a product to produce and at what price to sell it. They want to find the
+right balance to maximize their earnings. In this case, the maximization problem is about
+finding the production quantity and pricing strategy that leads to the highest profit possible.
+Minimization Problems:
+Minimization problems are a type of optimization problem where the objective is to find the
+solution that minimizes a certain value or cost. In these problems, you are trying to make
+something as small or as little as possible.
+Imagine you are planning to pack a suitcase for a trip, and you want to minimize the weight
+of the items you carry. The minimization problem, in this case, is to find the combination of
+items that results in the least amount of weight while ensuring you have everything you need
+for your trip.
+In summary, optimization problems involve finding the best solution among various options,
+while maximization problems are a subset of optimization problems where the goal is to
+
+make something as big or as great as possible, whether it's profit, benefit, or another desired
+outcome.
+
+Dynamic Programming:
+Dynamic Programming (DP) is a powerful problem-solving technique used in computer
+science and mathematics to solve problems by breaking them down into smaller,
+overlapping subproblems. It's a method for solving complex problems efficiently by
+avoiding redundant calculations and storing and reusing intermediate results. Here's a
+simple explanation of Dynamic Programming:
+1. Divide and Conquer: Dynamic Programming divides a problem into smaller,
+overlapping subproblems. This helps to simplify the problem and make it more
+manageable.
+2. Memoization: It uses a technique called memoization, where the results of
+subproblems are stored in a data structure (often a table or array) to avoid
+recomputation. This reduces time complexity.
+3. Optimal Substructure: Problems that can be solved using DP often have an optimal
+substructure property. This means that the optimal solution for the entire problem can
+be constructed from optimal solutions to its smaller subproblems.
+Dynamic Programming is commonly used to solve problems that have recursive or
+overlapping subproblems, such as the Fibonacci sequence, the knapsack problem, or
+shortest path problems in graphs.
+Let's take an example of the Fibonacci sequence to illustrate Dynamic Programming:
+Fibonacci Sequence using Dynamic Programming:
+The Fibonacci sequence is defined as follows: F(0) = 0, F(1) = 1, and F(n) = F(n-1) + F(n-2)
+for n > 1. This sequence grows rapidly, and calculating Fibonacci numbers using a simple
+recursive approach can be highly inefficient.
+Dynamic Programming can be used to optimize the computation of Fibonacci numbers:
+1. Create an array or a table to store the Fibonacci values.
+2. Initialize the values for F(0) and F(1).
+3. Use a loop to calculate each subsequent Fibonacci number by adding the values
+from the table for F(n-1) and F(n-2).
+4. Store the newly calculated value in the table for future use.
+With Dynamic Programming, you avoid redundant calculations and dramatically improve the
+efficiency of computing Fibonacci numbers, making it much faster than using a basic
+recursive approach.
+Advantages of Dynamic Programming:
+1. Efficiency: Dynamic Programming can significantly reduce time complexity by
+avoiding redundant calculations, making it suitable for complex problems.
+
+2. Optimality: It often guarantees optimal solutions, as it builds solutions from optimal
+subproblems.
+3. Versatility: DP can be applied to a wide range of problems, including optimization,
+pathfinding, and sequence analysis.
+Disadvantages of Dynamic Programming:
+1. Complexity: Implementing DP solutions can be challenging, as it requires careful
+problem decomposition and maintaining a table or array of results.
+2. Memory Usage: DP solutions may consume extra memory to store intermediate
+results, which can be a concern for problems with large input sizes.
+In summary, Dynamic Programming is a powerful technique for solving problems by breaking
+them down into smaller subproblems, avoiding redundant calculations, and optimizing
+solutions. It's a valuable tool for tackling complex problems efficiently.
+
+Tabulation and Memoization are two common techniques used in Dynamic Programming to
+solve problems by avoiding redundant calculations and storing intermediate results. Let's
+explain each of them:
+
+Tabulation:
+Tabulation, also known as the "bottom-up" approach, is a Dynamic Programming technique
+where you solve a problem by building a table or array and iteratively filling it with values
+starting from the smallest subproblem and progressing towards the larger problem. It's a
+more straightforward and iterative approach.
+Here's a simplified step-by-step process of using tabulation:
+1.
+2.
+3.
+4.
+
+Create a table or array of a suitable size to store the results of subproblems.
+Initialize the table with values for the base cases (smallest subproblems).
+Use loops to iteratively fill in the table with values for larger subproblems.
+The final result is often found in the last cell of the table, which corresponds to the
+original problem.
+
+Tabulation is particularly useful when you can define the order in which subproblems are
+solved. It's often more intuitive for problems where you know the exact sequence of
+computation.
+
+Memoization:
+Memoization, also known as the "top-down" approach, is a Dynamic Programming technique
+that uses recursion and a data structure (usually a dictionary or a cache) to store and
+retrieve the results of subproblems. It's a more elegant and recursive approach.
+Here's a simplified step-by-step process of using memoization:
+1. Define a recursive function to solve the original problem.
+
+2. Before solving a subproblem, check if you've already calculated its result and stored
+it in the cache (a data structure like a dictionary).
+3. If the result for the subproblem is in the cache, retrieve it. If not, calculate it and store
+it in the cache.
+4. Continue solving subproblems recursively.
+5. Return the result for the original problem when the recursion reaches it.
+Memoization is useful when you can't predict the order of computation, and you want to
+solve a problem incrementally while avoiding redundant calculations. It can also be more
+intuitive for problems with a more natural recursive structure.
+In summary, tabulation and memoization are both techniques used in Dynamic Programming
+to optimize problem-solving by avoiding redundant calculations. Tabulation is iterative,
+building a table from the bottom up, while memoization is recursive, using a cache to store
+and retrieve results from the top down. The choice between the two often depends on the
+problem and your preferred programming style.
+Key Differences:
+1. Approach:
+○ Tabulation is a "bottom-up" approach, starting from the base cases and
+progressing to the final result iteratively.
+○ Memoization is a "top-down" approach, using recursion to solve subproblems
+and store their results in a cache.
+2. Complexity:
+○ Tabulation is often more memory-efficient as it doesn't require the overhead of
+function call stacks.
+○ Memoization may consume more memory due to the function call stack, but it
+can be more intuitive for some problems.
+3. Order of Computation:
+○ Tabulation computes subproblems in a predetermined order.
+○ Memoization computes subproblems on-demand as the recursion
+progresses.
+
+Backtracking:
+Backtracking is a problem-solving technique used to find all (or some) solutions to problems,
+especially in situations where there are multiple possible options to consider at each step.
+It's often used for optimization, constraint satisfaction, and decision-making problems.
+Backtracking is a systematic way of exploring different paths, and it relies on recursion to try
+various possibilities.
+Here's a simple explanation of backtracking:
+
+1. Candidate Solutions: In a backtracking problem, you start with a partial solution and
+extend it step by step. At each step, you have a set of candidate solutions or choices
+for the next move.
+2. Recursion: Backtracking uses recursive function calls to explore these choices one
+by one. Each recursive call represents a new step in the problem-solving process.
+3. Exploration: The algorithm explores the current choice and checks if it leads to a
+valid solution or not.
+4. Decision: If the current choice does not lead to a valid solution, the algorithm
+backtracks to the previous step and explores the next candidate solution. This
+process continues until a valid solution is found or all possibilities have been
+explored.
+5. Termination: The recursion stops when a valid solution is found or when the
+algorithm determines that no valid solution exists.
+Here's a classic example of a problem that can be solved using backtracking: the N-Queens
+problem.
+N-Queens Problem:
+In the N-Queens problem, you're given an N×N chessboard, and you need to place N
+queens on the board in such a way that no two queens threaten each other. A queen can
+attack in horizontal, vertical, and diagonal directions. The challenge is to find all possible
+solutions to this problem.
+Backtracking is used to explore different configurations of queens on the board
+systematically, and it backtracks when it realizes that a placement leads to a conflict (two
+queens threaten each other). It continues until all valid solutions have been found.
+Advantages of Backtracking:
+1. Systematic Exploration: Backtracking systematically explores all possible solutions
+or paths, ensuring that no valid solution is missed.
+2. Flexibility: It can be applied to various types of problems, including optimization,
+constraint satisfaction, and decision-making problems.
+3. Memory Efficiency: Backtracking doesn't require storing a large amount of data or
+intermediate results, which makes it memory-efficient.
+Disadvantages of Backtracking:
+1. Exponential Time Complexity: Backtracking can have high time complexity,
+especially for problems with a large solution space. It may not be suitable for
+problems where efficiency is critical.
+2. Complex Implementation: Implementing backtracking algorithms can be complex,
+and maintaining the state of the algorithm and checking for constraints can be
+challenging.
+3. Not Always Efficient: Backtracking may not be the most efficient approach for
+problems where other techniques like Dynamic Programming or Greedy Algorithms
+can provide better solutions.
+
+In summary, backtracking is a systematic and recursive problem-solving technique used to
+explore and find solutions to problems with multiple choices at each step. It is particularly
+useful for problems where you need to explore a vast solution space to find valid solutions or
+combinations.
+
+Branch and Bound:
+Branch and Bound is a problem-solving technique used to systematically explore and find
+the best possible solution to optimization problems, often in cases where an exhaustive
+search would be impractical. It combines the idea of "branching" (dividing the problem into
+smaller subproblems) with "bounding" (estimating and pruning subproblems that cannot lead
+to a better solution than the current best). Let's explain Branch and Bound using the
+N-Queens problem:
+N-Queens Problem and Branch and Bound:
+The N-Queens problem involves placing N queens on an N×N chessboard in such a way
+that no two queens threaten each other (i.e., they cannot attack each other).
+Here's how Branch and Bound works for the N-Queens problem:
+1. Branching: Start with an empty chessboard and consider the first row. At each step,
+you place a queen in a specific column of the current row, effectively branching the
+problem into smaller subproblems. You explore all possible choices (branches) for
+queen placement in the current row.
+2. Bounding (Pruning): As you explore these branches, you evaluate the potential of
+each branch to lead to a valid solution. If a branch violates the constraint (e.g., two
+queens threaten each other), you prune that branch because it cannot lead to a valid
+solution. You also prune branches that cannot improve the current best solution
+found so far.
+3. Optimality and Backtracking: Branch and Bound aims to find the best solution or
+an optimal solution. If a branch leads to a valid solution, you update the current best
+solution if it is better. If a branch is pruned, you backtrack to the previous branch and
+continue exploring other possibilities.
+4. Exploration: You continue branching, bounding, and exploring until you have
+considered all possible combinations of queen placements on the chessboard. At the
+end, you should have found the best possible solution (if one exists) or determined
+that no valid solution can be found.
+Example:
+Suppose we're trying to solve the N-Queens problem for N = 8 using Branch and Bound. We
+start with an empty chessboard (an 8x8 grid) and consider the first row.
+1. We place a queen in the first column of the first row. This branch leads to other
+possibilities.
+2. We place a queen in the second column of the first row. Now, we have two branches.
+
+3. We evaluate each branch and eliminate those that are not feasible (violating the
+non-attacking rule) or do not have the potential to improve the current best solution.
+4. We continue branching and pruning, exploring various combinations, and updating
+the current best solution if a better one is found.
+5. The process continues until we've explored all possibilities or determined the best
+solution possible.
+Branch and Bound helps efficiently explore and find the best solution by pruning branches
+that cannot lead to improvements or valid solutions, making it a powerful technique for
+optimization problems.
+
+Depth-First Search (DFS) is commonly used with Backtracking because it explores
+paths in depth, often reaching the end of a path before backtracking to explore other
+possibilities.
+Breadth-First Search (BFS) can be used in some cases with Branch and Bound,
+especially when searching for the best solution in a graph, as it systematically explores all
+nodes at a given level before moving to the next level.
+
+Ass 1: Fibonacci numbers (recursive &
+iterative)
+Fibonacci Series In Java With Recursion - Full Tutorial (FAST Algorithm)
+1. The first program, which uses the fibonacci function to calculate the Fibonacci
+series and value, uses a recursive approach.
+2. The second program, which uses the fibonacciIterative function to calculate
+the Fibonacci series and value, uses an iterative approach.
+Time and Space Complexity:
+1. Recursive Approach:
+○ Time Complexity: O(2^n) - The recursive approach has exponential time
+complexity because it recalculates values for the same positions multiple
+times.
+○ Space Complexity: O(n) - The space complexity is O(n) due to the function
+call stack, where n is the input number. This can lead to stack overflow errors
+for large values of n.
+2. Iterative Approach:
+○ Time Complexity: O(n) - The iterative approach has linear time complexity
+because it calculates each Fibonacci value once.
+○ Space Complexity: O(1) - The space complexity is constant because it uses
+a fixed amount of memory to store variables, regardless of the input value.
+Optimality:
+The recursive approach is not optimal due to its exponential time complexity and the need to
+recalculate values for the same positions, making it inefficient for larger inputs.
+The iterative approach is much more optimal in terms of time complexity, as it calculates
+Fibonacci values efficiently in a linear time fashion. It is a much better choice for practical
+applications and large values of n.
+In summary, the iterative approach is the optimal choice for calculating Fibonacci values
+efficiently, while the recursive approach is not optimal due to its exponential time complexity
+and potential stack overflow issues for large inputs.
+A stack overflow can occur in the recursive Fibonacci code when the depth of the function
+calls becomes too large for the call stack to handle. This can happen with large values of n.
+Let me provide an example:
+Consider a scenario where you are using the recursive Fibonacci code, and you input a
+large value of n, such as 100 or 1000. In this case, the recursive function calls for calculating
+Fibonacci values become deeply nested. For each call, two more recursive calls are made,
+
+and this branching continues until reaching the base cases. As a result, the function call
+stack becomes very large, and it may exceed the stack's capacity, leading to a stack
+overflow error.
+For example, if you calculate fibonacci(1000) using the recursive approach, you are
+making a huge number of recursive calls, which will likely result in a stack overflow error
+because the call stack becomes too deep to handle.
+When to Use Recursive vs. Iterative Approach for Fibonacci:
+●
+
+Recursive Approach: Use the recursive approach when you want a simple and
+straightforward implementation for small values of n. It's suitable for educational
+purposes, understanding recursion, or when you don't expect large values of n.
+
+●
+
+However, it's not suitable for efficient computation of Fibonacci numbers for large n
+due to its exponential time complexity and potential for stack overflow errors.
+Iterative Approach: Use the iterative approach when you need an efficient way to
+compute Fibonacci numbers, especially for large values of n. It has a linear time
+complexity and is the preferred choice for practical applications where performance
+matters.
+
+In practice, for large Fibonacci numbers, the iterative approach is the most efficient and
+recommended method. The recursive approach is valuable for educational purposes and
+understanding recursion but should be avoided for efficiency and practical applications
+involving large values of n.
+
+Ass 2: Huffman Encoding (greedy)
+3.4 Huffman Coding - Greedy Method
+Compression technique
+Reducing size of data
+Greedy because we choose 2 lowest freq nodes first in search of optimal solution
+Can have multiple solutions
+Huffman Encoding is a compression algorithm that assigns shorter binary codes to more
+frequent characters, resulting in efficient data compression. It's used in various applications
+like file compression, data transmission, and text encoding.
+Here's how the code works:
+1. User Input: The program starts by taking a user input string. This string is the data
+we want to encode using Huffman Encoding.
+2. Frequency Calculation: The code first calculates the frequency of each character in
+the input string and creates a frequencyMap to store this information. For example,
+if the input is "ababababccccddddeee," the frequency map will record the frequency
+
+of each character:
+makefile
+a: 4
+b: 4
+c: 4
+d: 4
+e: 3
+Building the Priority Queue: The program uses a priority queue (priorityQueue) to
+build a Huffman tree. Each element in the priority queue is a HuffmanNode that represents
+a character and its frequency. The priority queue is sorted by frequency.
+Creating Huffman Nodes: For each character in the frequency map, a HuffmanNode is
+created with the character and its frequency and added to the priority queue.
+Tree Construction: The program repeatedly extracts two nodes with the lowest frequencies
+from the priority queue and merges them into a new HuffmanNode. The merged node has a
+special character ('$' in this case) and a frequency equal to the sum of the frequencies of the
+merged nodes. This process continues until there is only one node left in the priority queue,
+which becomes the root of the Huffman tree.
+Huffman Codes Generation: The program then constructs the Huffman codes for each
+character by traversing the Huffman tree. It assigns '0' when moving to the left child and '1'
+when moving to the right child. The codes are stored in a huffmanCodes map.
+For example, the generated codes might be:
+makefile
+a: 01
+b: 111
+c: 110
+d: 101
+e: 00
+Encoding the Input String: Using the generated Huffman codes, the program encodes the
+original input string character by character. For each character in the input string, it looks up
+the corresponding Huffman code and appends it to the encodedString.
+If the input string was "ababababccccddddeee," it would be encoded as:
+011110111101111011111010101000000000110110110
+1.
+2. Output: The program then prints the generated Huffman codes for each character
+and the encoded string.
+Real-Life Scenario:
+Imagine you have a text document with various characters, and you want to compress it for
+efficient storage and transmission. You can use Huffman Encoding to assign shorter codes
+to the most frequent characters in the document, reducing its size.
+
+In this real-life scenario:
+●
+●
+●
+●
+●
+●
+
+The input string is the content of the document.
+The program calculates the frequency of each character in the document.
+It constructs a Huffman tree based on these frequencies.
+Huffman codes are generated for each character.
+The document is encoded using these Huffman codes, producing a compressed
+version.
+When you need to decode or access the original document, you use the generated
+Huffman codes to efficiently retrieve the original characters.
+
+Huffman Encoding is commonly used in file compression formats (e.g., ZIP, JPEG) to reduce
+file sizes and in data transmission to save bandwidth. It's a powerful technique for data
+compression in various applications.
+The approach used in this code is a combination of priority queue-based tree construction
+(Greedy algorithm) and recursive traversal of the constructed Huffman tree to generate
+Huffman codes for characters.
+1. **Priority Queue (Greedy Algorithm)**: The program uses a priority queue (min-heap) to
+build the Huffman tree. This approach is a form of the Greedy algorithm. It continually
+combines the two nodes with the lowest frequencies until a single root node is formed. This
+ensures that characters with higher frequencies get shorter Huffman codes, which is a key
+characteristic of Huffman coding.
+2. **Recursion**: The generation of Huffman codes involves a recursive process. The
+`generateHuffmanCodes` function is responsible for traversing the Huffman tree recursively.
+It starts from the root and recursively explores the left and right subtrees, appending '0' for
+left branches and '1' for right branches. This recursive approach is used to generate Huffman
+codes for each character in the tree.
+In summary, the code uses a combination of a Greedy algorithm for tree construction and
+recursive traversal for code generation, making it a combination of approaches rather than
+just one specific approach like dynamic programming or recursion.
+
+The time and space complexity of this Huffman encoding code can be analyzed as follows:
+1. Time Complexity:
+○ Building the frequency map: The loop that iterates over the input string and
+counts the frequency of each character runs in O(n) time, where 'n' is the
+length of the input string.
+○ Building the Huffman Tree: Constructing the Huffman tree using a priority
+queue takes O(n * log(n)) time, where 'n' is the number of unique characters
+(not necessarily the same as the length of the input string). In the worst case,
+you might have to insert and extract elements from the priority queue multiple
+times.
+
+Generating Huffman Codes: The generateHuffmanCodes function
+traverses the Huffman tree, and since each character in the tree is visited
+once, it runs in O(n) time.
+○ Encoding the input string: Encoding the input string using the generated
+Huffman codes takes O(n) time, as you process each character in the input
+string.
+2. In total, the time complexity of the code is dominated by the Huffman tree
+construction and is approximately O(n * log(n)), where 'n' is the number of unique
+characters in the input string.
+3. Space Complexity:
+○ The frequencyMap stores the frequency of each unique character in the
+input string. In the worst case, if all characters in the input are unique, it would
+require O(n) space, where 'n' is the length of the input string.
+○ The priorityQueue stores the HuffmanNode objects, and in the worst
+case, it can have 'n' nodes if all characters in the input string are unique.
+Hence, it would also require O(n) space.
+○ The huffmanCodes map stores the Huffman codes for each character. In the
+worst case, it requires O(n) space to store these codes.
+○ Other auxiliary data structures used in the code also have relatively small
+space requirements.
+4. So, the overall space complexity of the code is O(n), where 'n' is the number of
+unique characters in the input string.
+○
+
+Keep in mind that the actual time and space complexity may vary based on the
+characteristics of the input data and the distribution of characters in the input string.
+
+Ass 3: Fractional Knapsack (greedy)
+3.1 Knapsack Problem - Greedy Method
+Optimization and maximization problem because we need maximum profit
+The approach used in the Fractional Knapsack problem is a greedy algorithm. Greedy
+algorithms make locally optimal choices at each step with the hope of finding a global
+optimum. In this problem, the algorithm sorts the items by their value-to-weight ratios in
+descending order and then selects items to add to the knapsack based on this sorted order.
+The greedy choice is to always pick the item with the highest value-to-weight ratio. This
+approach works for fractional knapsack problems, where fractions of items can be taken to
+maximize the total value within the knapsack's capacity.
+In contrast, for the 0/1 Knapsack problem, dynamic programming or recursive approaches
+are often used to find the optimal solution, as it doesn't allow fractional items to be taken.
+
+Time Complexity:
+
+1. Sorting the items by their value-to-weight ratios takes O(n log n) time, where n is the
+number of items.
+2. The main loop iterates through the sorted items and performs constant-time
+operations for each item. This loop takes O(n) time in the worst case.
+Overall, the time complexity of the Fractional Knapsack algorithm is O(n log n) due to the
+sorting step.
+Space Complexity:
+1. The space complexity is primarily determined by the space used to store the items
+list, which has a size of 'n'.
+2. Additional space is used for variables and temporary storage, but these are generally
+small and considered constant.
+Therefore, the space complexity of the Fractional Knapsack algorithm is O(n).
+
+Ass 4: 0-1 Knapsack (dp)
+4.5 0/1 Knapsack - Two Methods - Dynamic Programming
+4.5.1 0/1 Knapsack Problem (Program) - Dynamic Programming
+This problem demands maximum result so it is a optimization problem
+Dp is useful for solving optimization problem
+Dp says that a problem should be solved in seq of decisions
+Dp states that we should try all possible solutions and pick up the best one
+Now for 4 objects this will result in 2^4 solutions
+N objects = 2^n solutions
+Dp helps lower this time
+
+Tabulation Method:
+
+Set Method:
+Set method will try to find all possibilities and pickup the best solution
+
+Time taken to find these sets: 2^n
+
+Algorithm:
+
+K[4][8] will have value 8 which is the final answer i.e max profit
+
+The code you provided implements the 0/1 Knapsack problem using dynamic programming.
+This approach is known as the "Dynamic Programming" approach. Let's explain it in detail:
+Dynamic Programming Approach:
+The 0/1 Knapsack problem is a classic optimization problem, and dynamic programming is
+one of the most efficient ways to solve it. Here's how dynamic programming is used in this
+code:
+1. Initialization:
+○ The problem is broken down into subproblems by considering each item
+individually.
+○ A 2D array dp is created, where dp[i][w] represents the maximum profit
+that can be obtained by choosing from the first i items with a knapsack
+capacity of w. The array is initialized to zeros.
+Another 2D array selected is used to keep track of whether an item is
+selected in the optimal solution.
+2. Iterative Approach:
+○ The code uses nested loops to iterate through the items and knapsack
+capacities. The outer loop iterates through each item, and the inner loop
+iterates through each possible knapsack capacity from 1 to the given capacity.
+3. Subproblem Calculation:
+○ For each subproblem, the code makes a decision for the current item:
+whether to include it in the knapsack or exclude it.
+○ It calculates two options:
+○
+
+includeProfit: The profit obtained by including the current item in
+the knapsack, considering the remaining capacity after including it.
+■ excludeProfit: The profit obtained by excluding the current item
+and considering the same capacity.
+It selects the option that maximizes the profit and updates the dp array with
+■
+
+○
+
+this maximum profit. It also updates the selected array to mark whether the
+item is included in the optimal solution.
+4. Backtracking:
+○ After completing the dynamic programming phase, the code performs
+backtracking to find the items that were selected to achieve the maximum
+profit.
+○ It starts from the last item and checks the selected array to determine if the
+item was included. If it was, the item's index is added to the list of selected
+items.
+5. Result:
+○ The result of the problem is the maximum profit stored in
+dp[n][capacity], where n is the number of items and capacity is the
+knapsack's capacity.
+This dynamic programming approach is used to find the optimal solution by breaking down
+the problem into smaller subproblems and efficiently calculating and storing the results for
+these subproblems. It ensures that solutions to overlapping subproblems are computed only
+once, leading to a significant improvement in efficiency compared to other approaches like
+greedy algorithms or recursive solutions.
+
+The time and space complexity of the 0/1 Knapsack problem solved using dynamic
+programming can be explained as follows:
+Time Complexity:
+The time complexity of the dynamic programming approach to the 0/1 Knapsack problem is
+O(n * capacity), where "n" is the number of items, and "capacity" is the maximum capacity of
+the knapsack. Here's why:
+1. Time Complexity for Filling the DP Table:
+○ The two nested loops iterate through each item (from 1 to "n") and each
+possible knapsack capacity (from 1 to "capacity").
+○ For each combination of item and capacity, the code performs constant-time
+operations to compute the maximum profit based on the previous solutions.
+○ As a result, the time complexity for filling the DP table is O(n * capacity).
+2. Backtracking Time Complexity:
+○ The backtracking step, which finds the selected items, takes O(n) time
+because it goes through the list of items, checking which ones were selected.
+3. Overall Time Complexity:
+
+○
+
+The dominant factor is the time complexity for filling the DP table, which is
+O(n * capacity). Therefore, the overall time complexity of the algorithm is O(n
+* capacity).
+
+Space Complexity:
+The space complexity of the dynamic programming approach is O(n * capacity) as well.
+Here's how the space complexity is calculated:
+1. DP Table Space:
+○ The 2D DP table dp has dimensions (n + 1) x (capacity + 1). This table is
+used to store the maximum profits for different combinations of items and
+capacities.
+○ Therefore, the space complexity for the DP table is O(n * capacity).
+2. Selected Items List:
+○ The selectedItems list is used to store the selected item indices, and its
+space complexity is O(n) because it can contain at most "n" item indices.
+3. Other Variables:
+○ The space complexity of other variables, such as integers and boolean
+arrays, is considered negligible in comparison to the DP table and the
+selected items list.
+4. Overall Space Complexity:
+○ The dominant factor in space complexity is the DP table, which is O(n *
+capacity). Therefore, the overall space complexity of the algorithm is O(n *
+capacity).
+In summary, the dynamic programming approach to the 0/1 Knapsack problem has a time
+complexity of O(n * capacity) and a space complexity of O(n * capacity), where "n" is the
+number of items, and "capacity" is the maximum capacity of the knapsack. It efficiently
+computes the maximum profit for different combinations of items and capacities while
+keeping track of the selected items.
+
+Ass 5: n-Queens
+BackTracking:
+6.1 N Queens Problem using Backtracking
+Build State space tree
+Allow diagonal queens, don’t allow queens in same row and column
+
+The approach used in the provided code is a combination of recursion with backtracking.
+This approach is commonly employed for solving combinatorial problems, including the
+N-Queens problem.
+Here's a breakdown of the approach:
+1. Recursion: The code uses recursion to explore different possibilities and to navigate
+through different configurations of queen placements. The solveNQueens function
+is a recursive function that attempts to place queens in each column of the
+chessboard, row by row. It starts in the first column, attempts to place a queen in
+each row of that column, and then recursively proceeds to the next column. If a
+solution is not found in one configuration, it backtracks to explore other possibilities.
+2. Backtracking: Backtracking is a crucial element of this approach. When a valid
+placement of a queen is not possible in a particular configuration (i.e., when the
+isSafe function returns false for all rows in a column), the code backtracks to the
+previous column and row to try alternative placements. This process continues until a
+solution is found or until all possible configurations have been explored.
+In summary, the code uses a recursive approach to systematically explore various
+configurations of queen placements on the chessboard while employing backtracking to
+backtrack and try different possibilities when a valid placement is not possible. This
+combination of recursion and backtracking is a common approach for solving problems that
+involve searching for valid solutions in a combinatorial space.
+
+The time and space complexity of the N-Queens solving algorithm can be analyzed as
+follows:
+Time Complexity:
+The time complexity of this code can be challenging to express precisely due to the
+recursive nature and the backtracking involved. However, we can provide an approximate
+analysis.
+●
+●
+●
+
+In the worst case, the algorithm explores all possible configurations of queens on the
+N×N chessboard. This involves trying each row in each column.
+For the first column, it explores N rows. In the second column, it explores N - 1 rows
+(since one queen is already placed), and so on.
+Therefore, in the worst case, the algorithm makes N * (N - 1) * (N - 2) * ... * 1 = N! (N
+factorial) recursive calls to solveNQueens.
+
+So, the worst-case time complexity of this algorithm is roughly O(N!) or factorial time
+complexity. N! grows extremely quickly, and for larger values of N, this algorithm becomes
+impractical.
+Space Complexity:
+The space complexity of the code is primarily determined by the space required for the
+chessboard and the call stack during recursion.
+●
+●
+
+The chessboard is represented as a 2D array of size N×N. Therefore, the space
+complexity for the chessboard is O(N^2).
+The space complexity due to recursion depends on the maximum depth of the
+recursion, which is determined by the maximum number of columns (N) and the
+branching factor at each level. In the worst case, the recursion depth can be N, and
+at each level of recursion, you're maintaining the state of the chessboard. So, the
+space complexity due to the call stack is also O(N^2).
+
+Therefore, the overall space complexity of this algorithm is O(N^2) for the chessboard and
+O(N^2) for the call stack, leading to a total space complexity of O(N^2) + O(N^2), which
+simplifies to O(N^2).
+Keep in mind that while the space complexity is relatively manageable, the time complexity
+is the more significant concern for larger N values. The algorithm's performance degrades
+rapidly as N increases due to its factorial time complexity. For practical purposes, this
+algorithm becomes impractical for N values beyond a certain threshold.
+
+Branch and Bound: (not in lab manual) learn for oral
+After applying bounding function, i.e no same row, column, diagonal
+We can reduce the size of the tree by using this bounding function
+
+Here's the analysis of the time and space complexity for the branch-and-bound code
+provided for solving the N-Queens problem:
+Time Complexity:
+The time complexity of this branch-and-bound approach is not straightforward to analyze
+precisely, as it depends on the specific instance of the N-Queens problem. However, we can
+provide an approximate understanding:
+●
+●
+●
+
+The code explores different configurations of queen placements in a systematic
+manner.
+In the worst case, it explores all possible configurations of queens on the N×N
+chessboard.
+The number of recursive calls made depends on how many safe positions are
+available in each column. The maximum number of recursive calls is exponential, but
+it is significantly pruned through the branch-and-bound technique.
+
+In the worst case, the time complexity can be approximated as exponential, O(N^N), but it is
+much more efficient in practice due to the pruning of infeasible branches using the
+branch-and-bound approach.
+Space Complexity:
+The space complexity is determined by the data structures used to keep track of the state of
+the chessboard and the tracking arrays:
+●
+
+int[] queens: An array of size N is used to keep track of the row positions of
+queens in each column. The space complexity is O(N).
+
+●
+●
+
+boolean[] rows: An array of size N is used to track which rows are occupied by
+queens. The space complexity is O(N).
+boolean[] diag1 and boolean[] diag2: Each of these arrays is of size 2 * N 1. They are used to keep track of diagonals that are occupied by queens. The space
+complexity for each is O(2N-1), which simplifies to O(N).
+
+The overall space complexity is O(N) (for queens) + O(N) (for rows) + O(N) (for diag1) +
+O(N) (for diag2), resulting in a total space complexity of O(N).
+In summary, the branch-and-bound approach provides a significant reduction in the search
+space, making it more efficient than a straightforward brute-force approach. However, it is
+important to note that the time complexity still grows exponentially with N, but the actual
+number of recursive calls is substantially reduced due to pruning. The space complexity is
+linear in terms of the size of the chessboard (N).
+
+Machine Learning
+Linear Regression:
+
+Linear regression is a fundamental and simple machine learning technique used for
+predictive modeling, particularly in cases where you want to understand or predict the
+relationship between a dependent variable and one or more independent variables. In simple
+terms, here's what linear regression is all about:
+What is Linear Regression?
+Linear regression is a statistical method used to model the relationship between a
+dependent variable (the one you want to predict) and one or more independent variables
+(features or predictors). The primary goal is to find a linear equation that best describes how
+changes in the independent variables affect the dependent variable.
+How Does Linear Regression Work?
+Linear regression finds the best-fit line, often called the "regression line" or "line of best fit,"
+through the data points in such a way that it minimizes the sum of the squared differences
+between the predicted values and the actual values. The equation for a simple linear
+regression (with one independent variable) is:
+Y=a+bXY=a+bX
+Where:
+●
+●
+●
+
+YY is the dependent variable (what you're trying to predict).
+XX is the independent variable (the feature you're using for prediction).
+aa is the intercept, which represents the value of YY when XX is 0.
+
+●
+
+bb is the slope of the line, indicating how much YY changes when XX changes by
+one unit.
+
+In multiple linear regression (with more than one independent variable), the equation
+becomes:
+Y=a+b1X1+b2X2+…+bnXnY=a+b1​X1​+b2​X2​+…+bn​Xn​
+Here, you have multiple independent variables X1,X2,…,XnX1​,X2​,…,Xn​and corresponding
+coefficients b1,b2,…,bnb1​,b2​,…,bn​, which represent the relationship between each
+independent variable and the dependent variable (Y.
+Key Concepts:
+1. Least Squares Method: Linear regression uses the least squares method to
+determine the best-fit line by minimizing the sum of the squared differences between
+the predicted and actual values.
+2. Intercept and Slope: The intercept (aa) is the point where the regression line
+crosses the Y-axis when all independent variables are zero. The slope (bb)
+represents the change in the dependent variable for a one-unit change in the
+independent variable.
+3. Goodness of Fit: The goodness of fit is often measured using metrics like
+R-squared (R²), which tells you how well the model explains the variance in the data.
+A higher R-squared value indicates a better fit.
+4. Assumptions: Linear regression makes certain assumptions, such as linearity (the
+relationship between variables is linear), independence (observations are
+independent), and homoscedasticity (constant variance of residuals).
+Applications of Linear Regression:
+Linear regression is used in various fields for prediction and analysis, including:
+●
+●
+●
+●
+
+Predicting house prices based on features like square footage and number of
+bedrooms.
+Estimating a person's salary based on years of experience and education.
+Analyzing the impact of marketing spending on sales.
+Predicting a patient's health outcome based on medical data.
+
+Linear regression is a powerful and interpretable tool for understanding and predicting
+relationships between variables, making it a fundamental technique in statistics and machine
+learning.
+
+Random Forest Regression:
+
+Random Forest Regression is a machine learning technique that extends the concept of
+decision trees to make more accurate and robust predictions, especially in regression
+problems. Let's break down Random Forest Regression in simple terms:
+What is Random Forest Regression?
+Random Forest Regression is a type of ensemble learning method, specifically a variant of
+decision tree-based ensemble learning. It combines multiple decision trees to make
+predictions, resulting in a more accurate and stable model for regression tasks.
+How Does Random Forest Regression Work?
+Here's how Random Forest Regression works:
+1. Building Multiple Decision Trees: A Random Forest consists of a collection of
+decision trees. Each tree is constructed independently using a subset of the data
+(bootstrapped sample) and a subset of the features (random feature selection).
+2. Making Predictions: To make a prediction, the data point is passed through each of
+the individual decision trees. For regression tasks, the final prediction is typically the
+average (mean) of the predictions from all the trees. This averaging process helps
+reduce the impact of overfitting and noise.
+Key Concepts:
+1. Ensemble Learning: Random Forest Regression is an ensemble learning
+technique, which means it combines multiple models to create a stronger overall
+model. The idea is that by aggregating the predictions of many individual decision
+trees, you can obtain a more reliable prediction.
+2. Bootstrap Sampling: Each decision tree in the Random Forest is trained on a
+random subset of the data, and some data points may appear multiple times (with
+replacement) while others may be left out. This is known as bootstrap sampling and
+helps in creating diversity among the trees.
+
+3. Random Feature Selection: In addition to using different subsets of data, Random
+Forest also selects a random subset of features at each split in each tree. This
+feature selection process helps decorrelate the trees and makes the model less
+prone to overfitting.
+4. Averaging Predictions: In regression tasks, the final prediction is typically the
+average of the predictions from all the individual trees. This averaging process helps
+to improve the model's accuracy and generalizability.
+Advantages of Random Forest Regression:
+●
+●
+●
+●
+
+Random Forest Regression is highly robust and can handle noisy data effectively.
+It reduces the risk of overfitting, making it a powerful tool for regression tasks.
+It can work well with a large number of features and complex relationships between
+variables.
+It provides feature importance scores, helping you understand which variables are
+more influential in making predictions.
+
+Applications of Random Forest Regression:
+Random Forest Regression is widely used in various domains, including finance, healthcare,
+and environmental science. It can be applied to a range of regression problems, such as:
+●
+●
+●
+●
+
+Predicting stock prices based on various financial indicators.
+Estimating the price of real estate properties based on features like location, size,
+and amenities.
+Forecasting demand for healthcare services based on historical data and other
+factors.
+Predicting the impact of environmental variables on agricultural yields.
+
+In summary, Random Forest Regression is a powerful ensemble learning technique that
+combines multiple decision trees to make more accurate and robust predictions in
+regression problems. It's particularly useful when dealing with complex data and the potential
+for overfitting.
+
+K-Nearest Neighbors:
+
+K-Nearest Neighbors (K-NN) is a simple and intuitive machine learning algorithm used for
+both classification and regression tasks. It is based on the principle of similarity and is easy
+to understand. Let's break down K-NN in simple terms:
+What is K-Nearest Neighbors (K-NN)?
+K-Nearest Neighbors is a type of instance-based learning algorithm. It works by comparing a
+new data point with existing data points in the dataset to make predictions. The "K" in K-NN
+represents the number of nearest neighbors to consider when making predictions.
+How Does K-NN Work?
+Here's how K-NN works:
+1. Data Points and Labels: You start with a dataset of data points and their
+corresponding labels (for classification) or target values (for regression). Each data
+point is represented by a set of features or attributes.
+2. Distance Calculation: When you want to make a prediction for a new data point,
+K-NN calculates the distance between that data point and all other data points in the
+dataset. Common distance metrics include Euclidean distance and Manhattan
+distance.
+3. Choosing K: You specify the value of K, which determines how many nearest
+neighbors the algorithm should consider. For example, if K is set to 3, the algorithm
+will find the three data points in the dataset that are closest to the new data point.
+4. Majority Voting (for Classification) or Averaging (for Regression): In
+classification tasks, K-NN counts the labels of the K nearest neighbors and assigns
+the most common label as the prediction for the new data point. In regression tasks,
+K-NN averages the target values of the K nearest neighbors to make the prediction.
+Key Concepts:
+
+1. K-Value: The choice of K is crucial. A smaller K (e.g., K=1) can make the model
+sensitive to noise, while a larger K can make it more stable but might overlook local
+patterns.
+2. Distance Metric: The choice of distance metric affects how the algorithm measures
+similarity between data points. Common distance metrics include Euclidean,
+Manhattan, and others.
+3. Feature Scaling: It's important to scale or normalize the features in your dataset
+because K-NN is sensitive to the scale of the features. Without proper scaling, some
+features may dominate the distance calculation.
+4. Decision Boundary: In classification problems, K-NN's decision boundary can be
+nonlinear, meaning it can model complex patterns and relationships in the data.
+Applications of K-Nearest Neighbors:
+K-NN is used in various domains and applications, including:
+●
+●
+●
+●
+●
+
+Recommender systems: For movie recommendations, product recommendations,
+etc.
+Anomaly detection: Identifying unusual patterns in data.
+Classification problems: Such as text classification or image classification.
+Regression problems: Predicting values like housing prices or stock prices.
+Clustering: Grouping similar data points together.
+
+In summary, K-Nearest Neighbors is a versatile and easy-to-understand machine learning
+algorithm that makes predictions by finding the K closest data points to a new data point and
+using their labels or target values. It's particularly useful when you want to capture local
+patterns and relationships in your data.
+
+Support Vector Machine:
+
+A Support Vector Machine (SVM) is a powerful and versatile machine learning algorithm
+used for both classification and regression tasks. It's particularly effective in finding a clear
+boundary or decision surface between different classes of data. Let's break down SVM in
+simple terms:
+What is a Support Vector Machine (SVM)?
+A Support Vector Machine (SVM) is a supervised machine learning algorithm that aims to
+find the best possible decision boundary, called a hyperplane, to separate data points of
+different classes in a way that maximizes the margin between the classes.
+How Does SVM Work?
+Here's how SVM works:
+1. Data Points and Labels: You start with a dataset of data points, each labeled with a
+class (in classification) or a target value (in regression). The data points are
+represented by feature vectors.
+2. Finding the Hyperplane: The SVM algorithm's main goal is to find the hyperplane
+that best separates the data points into different classes. This hyperplane is chosen
+to maximize the margin, which is the distance between the hyperplane and the
+nearest data points from each class. These nearest data points are called support
+vectors.
+
+3. Margin and Support Vectors: The margin is a critical concept in SVM. A larger
+margin means a more robust and generalized model. The support vectors are the
+data points that define the margin and have the smallest distances to the hyperplane.
+4. Classification (or Regression): In classification, once the hyperplane is determined,
+it can be used to classify new data points. For a given data point, the side of the
+hyperplane it falls on (positive or negative) determines its class. In regression, the
+SVM aims to find a hyperplane that best fits the target values.
+Key Concepts:
+1. Kernel Trick: SVM can handle non-linear relationships between data points by using
+a kernel function. Common kernel functions include the linear kernel, polynomial
+kernel, and radial basis function (RBF) kernel.
+2. C Parameter: SVM introduces a parameter called "C" that controls the trade-off
+between maximizing the margin and minimizing classification errors. Smaller C
+values emphasize a larger margin, potentially at the cost of some misclassifications,
+while larger C values focus on reducing misclassifications even if it means a smaller
+margin.
+3. Hard and Soft Margin SVM: SVM can be classified into "hard margin" and "soft
+margin" based on the handling of outliers and noisy data. Hard margin SVM aims for
+a perfect separation with no misclassifications but can be sensitive to outliers. Soft
+margin SVM allows for some misclassifications to create a more robust model.
+Applications of Support Vector Machine:
+SVM is used in a wide range of applications, including:
+●
+●
+●
+●
+●
+●
+●
+
+Image classification and object recognition.
+Text classification, sentiment analysis, and spam detection.
+Handwriting recognition.
+Face detection and facial expression analysis.
+Bioinformatics for protein structure prediction.
+Financial forecasting and stock price prediction.
+Anomaly detection in cybersecurity.
+
+In summary, a Support Vector Machine (SVM) is a versatile and robust machine learning
+algorithm that finds the best hyperplane to separate data points of different classes, making
+it effective for both classification and regression tasks, especially when a clear separation is
+desired.
+
+K-Means clustering:
+
+K-Means clustering is a popular unsupervised machine learning algorithm used for
+grouping data points into clusters or segments based on their similarity. It's a simple and
+effective way to discover patterns and structure within a dataset. Let's break down K-Means
+clustering in simple terms:
+What is K-Means Clustering?
+
+K-Means clustering is a technique that divides a dataset into K distinct, non-overlapping
+groups or clusters. Each data point is assigned to one of the clusters based on its similarity
+to other data points within that cluster.
+How Does K-Means Clustering Work?
+Here's how K-Means clustering works:
+1. Initialization: Choose the number of clusters, K, that you want to create. Also,
+randomly initialize K cluster centroids (center points).
+2. Assignment: For each data point in your dataset, calculate the distance between
+that point and each of the K cluster centroids. Assign the data point to the cluster
+whose centroid is closest to it.
+3. Update Centroids: Recalculate the centroids of each cluster by taking the mean of
+all the data points assigned to that cluster. The centroid becomes the new center of
+the cluster.
+4. Repeat Steps 2 and 3: Keep iterating Steps 2 and 3 until the centroids no longer
+change significantly or a predefined number of iterations is reached.
+Key Concepts:
+1. Centroid: The centroid is the center point of a cluster, and it represents the mean of
+all data points in that cluster. It serves as a reference point for grouping similar data
+points.
+2. Distance Metric: Common distance metrics used in K-Means include Euclidean
+distance, Manhattan distance, and cosine similarity. Euclidean distance is the most
+commonly used metric.
+3. Number of Clusters (K): Choosing the right number of clusters, K, is a crucial step
+in K-Means. You may need to use domain knowledge, or techniques like the elbow
+method or silhouette analysis, to determine the optimal K value.
+Applications of K-Means Clustering:
+K-Means clustering is widely used in various fields and applications, including:
+●
+●
+●
+●
+●
+●
+●
+
+Customer segmentation in marketing.
+Image compression and image segmentation.
+Anomaly detection in cybersecurity.
+Document categorization and topic modeling.
+Identifying similar content for recommendation systems.
+Identifying disease clusters in epidemiology.
+Natural language processing for text categorization.
+
+In summary, K-Means clustering is an unsupervised machine learning algorithm that divides
+a dataset into K clusters based on the similarity of data points to cluster centroids. It's an
+effective tool for discovering hidden patterns and structure within data.
+
+Elbow Method:
+
+The elbow method is a heuristic technique used for determining the optimal number of
+clusters (K) in a K-Means clustering algorithm. It's called the "elbow method" because the
+plot of the number of clusters against the within-cluster variance looks like an arm bent at the
+elbow. The point where the plot starts to bend, resembling an elbow, indicates the optimal
+number of clusters. Let's break down the elbow method in simple terms:
+How Does the Elbow Method Work?
+Here's how the elbow method works:
+1. Vary the Number of Clusters: You start by running the K-Means clustering
+algorithm with different values of K, where K represents the number of clusters you
+want to create. Typically, you choose a range of K values, such as 1, 2, 3, up to a
+certain maximum value.
+2. Calculate the Within-Cluster Variance: For each value of K, calculate the
+within-cluster variance, often referred to as the sum of squared distances within
+clusters. This measure represents how compact and tight the clusters are. Lower
+variance indicates better clustering.
+3. Plot the Within-Cluster Variance: Create a plot where the x-axis represents the
+number of clusters (K), and the y-axis represents the within-cluster variance. As you
+increase the number of clusters (K), the variance tends to decrease because each
+cluster is smaller and more tightly packed.
+4. Identify the "Elbow" in the Plot: The key part of the elbow method is identifying the
+point on the plot where the reduction in variance starts to slow down, forming an
+
+"elbow" shape. This point is considered the optimal number of clusters, as it signifies
+the balance between minimizing within-cluster variance and preventing
+over-segmentation.
+Selecting K Using the Elbow Method:
+The point where the plot starts to bend, resembling an elbow, is usually chosen as the
+optimal number of clusters. This is a point where adding more clusters doesn't significantly
+reduce the within-cluster variance, and adding extra clusters may overcomplicate the model
+without providing much benefit.
+However, it's important to note that the choice of K is not always perfectly clear-cut, and
+sometimes there may not be a clear elbow in the plot. In such cases, you may need to use
+domain knowledge or consider other techniques like silhouette analysis to help make a more
+informed decision.
+Applications of the Elbow Method:
+The elbow method is widely used in data analysis and clustering applications, including
+customer segmentation, image segmentation, and document clustering. It provides a
+valuable way to select the optimal number of clusters for K-Means clustering and helps
+ensure that the clustering results are meaningful and interpretable.
+
+Hierarchical Clustering:
+
+Hierarchical clustering is a method of cluster analysis that creates a hierarchy of clusters in a
+dataset. It's a top-down or bottom-up approach, where data points are grouped into nested
+clusters. Hierarchical clustering is a powerful and intuitive technique for exploring the
+structure of your data. Let's break down hierarchical clustering in simple terms:
+How Does Hierarchical Clustering Work?
+Here's how hierarchical clustering works:
+1. Data Points and Distance Calculation: Start with your dataset, which consists of
+data points. For each pair of data points, calculate a distance or similarity measure to
+determine how closely they are related. Common distance measures include
+Euclidean distance, Manhattan distance, and cosine similarity.
+2. Create Individual Clusters: Initially, each data point is considered its own cluster.
+You can think of these individual clusters as the leaves of a tree structure.
+3. Merge Clusters: The next step is to iteratively merge clusters into larger clusters
+based on their similarity. There are two main approaches to hierarchical clustering:
+○ Agglomerative (Bottom-up): Start with the individual data points as clusters
+and merge the most similar clusters step by step until all data points are in
+one large cluster. This is the most common approach.
+○ Divisive (Top-down): Start with all data points in one cluster and recursively
+divide it into smaller clusters based on dissimilarity.
+4. Create a Dendrogram: As clusters are merged or divided, a dendrogram is created.
+A dendrogram is a tree-like diagram that shows the sequence of cluster merging or
+division, helping visualize the hierarchy.
+5. Stopping Criteria: The process continues until a stopping criterion is met, such as a
+predetermined number of clusters or a certain level of similarity.
+Key Concepts:
+
+1. Dendrogram: The dendrogram is a graphical representation of the hierarchical
+clustering process. It allows you to see the history of cluster formation and helps you
+choose the optimal number of clusters by cutting the dendrogram at an appropriate
+level.
+2. Linkage Methods: Different linkage methods can be used to determine the similarity
+between clusters. Common linkage methods include single linkage (based on the
+closest data points between clusters), complete linkage (based on the farthest data
+points), and average linkage (based on the average similarity of data points).
+3. Choosing the Number of Clusters: Hierarchical clustering doesn't require you to
+specify the number of clusters beforehand. You can select the number of clusters by
+cutting the dendrogram at the desired level, based on the problem's requirements.
+Applications of Hierarchical Clustering:
+Hierarchical clustering is used in various applications, including:
+●
+●
+●
+●
+●
+●
+
+Biology for gene expression analysis and taxonomy.
+Marketing for customer segmentation.
+Image analysis for image segmentation.
+Text analysis for document clustering.
+Social network analysis for identifying communities.
+Environmental science for habitat classification.
+
+In summary, hierarchical clustering is a versatile and intuitive method that creates a
+hierarchy of clusters in your data. It's especially useful when you want to explore the natural
+structure and relationships within your dataset without specifying the number of clusters in
+advance.
+
+Neural network-based classifier:
+A neural network-based classifier is a machine learning model that uses artificial neural
+networks to classify data into different categories or classes. Neural networks are a
+fundamental component of deep learning and are particularly effective in tasks like image
+recognition, natural language processing, and many other pattern recognition problems.
+Let's break down a neural network-based classifier in simple terms:
+What is a Neural Network-Based Classifier?
+A neural network-based classifier is a type of machine learning model inspired by the human
+brain's neural networks. It's designed to learn and recognize patterns in data, enabling it to
+classify new data points into predefined categories.
+How Does a Neural Network-Based Classifier Work?
+Here's a simplified explanation of how a neural network-based classifier works:
+
+1. Input Layer: The neural network starts with an input layer that takes in the features
+or attributes of your data. Each input node corresponds to one feature, and the
+values are fed into the network.
+2. Hidden Layers: Between the input and output layers, there are one or more hidden
+layers. Each layer contains multiple neurons (nodes), and these neurons are
+interconnected. Each connection (synapse) has a weight that determines the
+strength of the connection.
+3. Weights and Activation Functions: Each neuron in a hidden layer computes a
+weighted sum of its inputs, and then an activation function is applied to this
+sum. The activation function introduces non-linearity into the model and helps the
+network learn complex patterns.
+4. Forward Propagation: The data is passed through the network in a process called
+forward propagation. The values are multiplied by the weights and transformed by
+the activation functions as they move through the layers.
+5. Output Layer: The last layer is the output layer, which produces the final prediction.
+The number of nodes in the output layer corresponds to the number of classes you
+want to classify the data into.
+6. Training: The network is trained on labeled data (data with known categories).
+During training, the network adjusts the weights to minimize the difference between
+its predictions and the actual labels. This process is often done using optimization
+algorithms like gradient descent.
+7. Classification: Once the network is trained, it can be used to classify new, unlabeled
+data points. The class with the highest output value in the output layer is the
+predicted class.
+Key Concepts:
+1. Backpropagation: This is the process of updating the weights in the network to
+minimize the prediction error. It's done by propagating the error backward through the
+network, adjusting the weights accordingly.
+2. Activation Functions: Common activation functions include sigmoid, ReLU
+(Rectified Linear Unit), and softmax, each with its own characteristics and use cases.
+3. Deep Learning: Neural network-based classifiers with multiple hidden layers are
+often referred to as deep neural networks. Deep learning has been particularly
+successful in a wide range of applications.
+Applications of Neural Network-Based Classifiers:
+Neural network-based classifiers are applied in various domains, including:
+●
+●
+●
+●
+●
+●
+
+Image classification, object detection, and computer vision.
+Natural language processing for sentiment analysis, language translation, and text
+classification.
+Speech recognition and audio analysis.
+Medical diagnosis and healthcare.
+Financial fraud detection and stock market prediction.
+Autonomous vehicles for perception and decision-making.
+
+In summary, a neural network-based classifier is a machine learning model that uses
+artificial neural networks to classify data into predefined categories. It's capable of learning
+and recognizing complex patterns in data, making it a versatile tool for a wide range of
+classification tasks.
+
+Bias and Variance:
+Bias and variance are two key concepts in machine learning that describe the trade-off
+between model complexity and model performance. Understanding the balance between
+bias and variance is essential for building effective machine learning models.
+Bias:
+●
+
+●
+
+●
+
+Bias is the error introduced by approximating a real-world problem (which may be
+complex) by a simplified model. It represents how much the predictions of the model
+differ from the actual values.
+A high bias model is overly simplistic and tends to underfit the data. It cannot capture
+the underlying patterns in the data and results in poor training and testing
+performance.
+Bias can be reduced by using more complex models, increasing the number of
+features, or using more advanced algorithms.
+
+Variance:
+●
+
+●
+
+●
+
+Variance is the error introduced due to the model's sensitivity to small fluctuations or
+noise in the training data. It measures how much the model's predictions vary when
+trained on different subsets of the data.
+A high variance model is overly complex and tends to overfit the data. It captures not
+only the underlying patterns but also the noise in the data. As a result, it performs
+well on the training data but poorly on unseen data.
+Variance can be reduced by using simpler models, reducing the number of features,
+increasing the amount of training data, or employing techniques like regularization.
+
+Bias-Variance Trade-Off:
+●
+●
+
+●
+
+The goal in machine learning is to strike a balance between bias and variance. This
+balance is often referred to as the bias-variance trade-off.
+A model with high bias will underfit the data, while a model with high variance will
+overfit. The ideal model lies somewhere in the middle, where it captures the
+underlying patterns but does not overcomplicate things with noise.
+By understanding the bias-variance trade-off, you can select appropriate models,
+feature engineering, and regularization techniques to achieve the best possible
+model performance.
+
+In summary, bias and variance are critical concepts in machine learning that describe the
+trade-off between model simplicity and model performance. Balancing bias and variance is
+crucial to create models that generalize well and make accurate predictions on unseen data.
+
+Confusion Matrix:
+A confusion matrix is a fundamental concept in machine learning that's used to assess the
+performance of a classification model. It's a table that helps you understand how well your
+model is doing in terms of making correct and incorrect predictions. It consists of four key
+elements: True Positives (TP), True Negatives (TN), False Positives (FP), and False
+Negatives (FN). Let me break it down for you:
+1. True Positives (TP): These are cases where your model predicted a positive
+outcome, and it was indeed a positive outcome in reality. For example, if your model
+correctly predicted that a patient has a disease, and the patient actually has the
+disease, that's a true positive.
+2. True Negatives (TN): These are cases where your model predicted a negative
+outcome, and it was indeed a negative outcome in reality. For instance, if your model
+correctly predicted that an email is not spam, and it was indeed not spam, that's a
+true negative.
+3. False Positives (FP): These are cases where your model predicted a positive
+outcome, but it was actually a negative outcome in reality. An example could be your
+model incorrectly classifying a healthy person as having a disease.
+4. False Negatives (FN): These are cases where your model predicted a negative
+outcome, but it was actually a positive outcome in reality. For instance, your model
+incorrectly classifying a patient with a disease as healthy.
+Here's a simple example:
+Suppose you have a model that predicts whether an email is spam or not. You test it on 100
+emails, and the results are as follows:
+●
+●
+●
+●
+
+True Positives (TP): 30 emails were correctly classified as spam.
+True Negatives (TN): 60 emails were correctly classified as not spam.
+False Positives (FP): 5 emails were incorrectly classified as spam when they were
+not.
+False Negatives (FN): 5 emails were incorrectly classified as not spam when they
+were actually spam.
+
+You can then use these numbers to calculate various metrics like accuracy, precision, recall,
+and F1-score to evaluate the performance of your model.
+In summary, a confusion matrix is a useful tool to help you understand how well your
+classification model is performing by breaking down the predictions into four categories,
+enabling you to assess its strengths and weaknesses.
+
+Performance Metrics:
+Common metrics used to evaluate the performance of machine learning models. These
+metrics help you assess how well your model is doing on different aspects, such as
+accuracy, precision, recall, F-score, error rate, RMSE, and R-squared.
+1. Accuracy:
+○ Accuracy is a straightforward metric that measures the percentage of correct
+predictions out of all the predictions made by the model.
+○ Formula: (TP + TN) / (TP + TN + FP + FN)
+○ Example: If your model correctly classifies 90 out of 100 data points, the
+accuracy is 90%.
+2. Precision:
+○ Precision measures how many of the positive predictions made by the model
+are actually correct. It's particularly important when false positives are costly.
+○ Formula: TP / (TP + FP)
+○ Example: If your model predicted 30 emails as spam, and 25 of them were
+actually spam, the precision is 25/30 = 83.33%.
+3. Recall (Sensitivity or True Positive Rate):
+○ Recall measures how many of the actual positive cases your model is able to
+correctly identify. It's particularly important when false negatives are costly.
+○ Formula: TP / (TP + FN)
+○ Example: If there were 50 actual spam emails, and your model correctly
+identified 30 of them, the recall is 30/50 = 60%.
+4. F-score (F1-score):
+○ The F-score is the harmonic mean of precision and recall, and it provides a
+balance between the two. It's useful when you want to find a single metric that
+combines both precision and recall.
+○ Formula: 2 * (Precision * Recall) / (Precision + Recall)
+5. Error Rate:
+○ The error rate is simply the complement of accuracy, measuring the
+percentage of incorrect predictions.
+○ Formula: (FP + FN) / (TP + TN + FP + FN)
+○ Example: If your model makes 10 incorrect predictions out of 100, the error
+rate is 10%.
+6. Root Mean Squared Error (RMSE):
+○ RMSE is a metric commonly used to evaluate regression models. It measures
+the average magnitude of the errors between the predicted values and the
+actual values.
+○ Formula: sqrt(1/n * Σ(y_pred - y_actual)^2), where n is the number of data
+points.
+
+MSE (Mean Squared Error) and RMSE (Root Mean Squared Error) are both metrics used to
+measure the accuracy of a predictive model, particularly in regression tasks. Let's break
+them down in simple terms:
+Mean Squared Error (MSE):
+●
+●
+●
+●
+
+MSE is a measure of how "wrong" the model's predictions are when compared to the
+actual data points.
+It calculates the average of the squared differences between the predicted values
+and the actual values.
+Larger errors are magnified more due to squaring, making it sensitive to outliers.
+MSE is expressed in the same units as the squared values of the data.
+
+Root Mean Squared Error (RMSE):
+●
+●
+●
+
+RMSE is essentially the square root of the MSE.
+It's more interpretable because it's in the same units as the data, as opposed to the
+squared units in MSE.
+It measures the average magnitude of errors in a way that's easier to relate to the
+actual data.
+
+In summary, MSE and RMSE both quantify how far off your model's predictions are from the
+real values, but RMSE is often preferred because it provides a more intuitive measure of the
+error in the same units as your data, making it easier to understand and explain.
+
+7. R-squared (R^2):
+R-squared (R^2), in simple terms, is a statistical measure that tells you how well your
+regression model fits the actual data. It provides a number between 0 and 1, where:
+●
+
+0 means the model doesn't explain any of the variability in the data, indicating a poor
+fit.
+
+●
+
+1 means the model perfectly explains all the variability in the data, indicating an
+excellent fit.
+
+In essence, R-squared quantifies the proportion of the variance in the dependent variable
+that your model can account for. If R-squared is 0.8, for example, it means that 80% of the
+variability in the data is explained by your model, and the remaining 20% is unexplained or
+attributed to other factors. Higher R-squared values generally indicate a better fit, but it's
+important to consider the context and domain-specific knowledge when interpreting this
+value.
+○
+○
+○
+
+Values range from 0 to 1, where 1 indicates a perfect fit.
+Higher R-squared values indicate that the model explains more of the
+variance in the data.
+R Squared Explained in Hindi
+
+These metrics serve different purposes and are chosen based on the specific problem you
+are trying to solve and the nature of your data. For classification tasks, accuracy, precision,
+recall, and F-score are commonly used, while RMSE and R-squared are more appropriate
+for regression tasks. It's important to choose the right metric based on your problem's
+requirements and objectives.
+
+Normalization and Standardization:
+Normalization, Standardization, and Scaling are data preprocessing techniques commonly
+used in machine learning to transform the features or variables in your dataset. Each of
+these techniques serves a different purpose, and I'll explain them in simple terms:
+1. Normalization:
+○ Normalization, also known as Min-Max scaling, scales the features to a
+specific range, typically between 0 and 1.
+○ It's useful when you want to ensure that all your features have the same scale
+and are on a common range.
+○ Formula: (x - min) / (max - min), where x is the original value, min is the
+minimum value in the feature, and max is the maximum value in the feature.
+○ Example: If you have a feature like "age" with values ranging from 0 to 100,
+normalization would transform the values to a range between 0 and 1.
+2. Standardization (Z-score scaling):
+○ Standardization transforms the data to have a mean of 0 and a standard
+deviation of 1.
+○ It's useful when you want to make sure that your features have similar scales
+and follow a normal distribution.
+○ Formula: (x - mean) / standard deviation, where x is the original value, mean
+is the mean of the feature, and standard deviation is the standard deviation of
+the feature.
+○ Example: If you have a feature like "income" with values ranging from
+$20,000 to $200,000, standardization would make the values have a mean of
+0 and a standard deviation of 1.
+The choice between normalization and standardization depends on the characteristics of
+your data and the requirements of your machine learning model. Here's when to use each
+technique:
+Normalization (Min-Max Scaling):
+1. Use Normalization when:
+○ You want to scale the features to a specific range, typically between 0 and 1.
+○ Your data doesn't follow a normal distribution, and you're not concerned about
+preserving the original distribution.
+○ Your model or algorithm requires features to be on a common scale, but it's
+sensitive to the magnitude of values.
+2. Examples of when to use Normalization:
+○ Image pixel values (0 to 255).
+○ Features where you need to maintain the original relative ordering but want to
+bring them to the same scale (e.g., feature engineering for neural networks).
+Standardization (Z-score Scaling):
+1. Use Standardization when:
+
+○
+
+You want to transform your features to have a mean of 0 and a standard
+deviation of 1.
+○ Your data roughly follows a normal distribution, and you want to preserve this
+distribution.
+○ Your machine learning algorithm, such as many linear models and clustering
+algorithms (e.g., k-means), benefits from features being on the same scale.
+2. Examples of when to use Standardization:
+○ Age, height, weight, and other physical measurements.
+○ Financial data like income, where the range can be wide and the data is
+approximately normally distributed.
+○ When using algorithms that assume data is normally distributed, like Principal
+Component Analysis (PCA).
+In some cases, you might use both or a combination:
+1. Hybrid Approach:
+○ You can use a hybrid approach where you normalize some features and
+standardize others based on their characteristics and the needs of your
+model.
+○ For example, in a dataset with both age and income, you might standardize
+income while normalizing age.
+
+Ass 6: Predict the price of the Uber ride
+linear regression and random forest regression
+https://www.kaggle.com/code/ankita2812/predict-the-price-of-the-uber-ride#4.-Implement-lin
+ear-regression-and-random-forest-regression-models.
+
+Ass 7: Classify the email using the binary
+classification
+K-Nearest Neighbors and Support Vector Machine
+https://www.kaggle.com/code/dinanksoni/spam-email-classification
+
+Ass 8: Neural network-based classifier
+Ass 9: K-Nearest Neighbors algorithm on
+diabetes.csv
+Ass 10: K-Means clustering/ hierarchical
+clustering on sales_data_sample.csv
+
+
